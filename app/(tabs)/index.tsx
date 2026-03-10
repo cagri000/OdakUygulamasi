@@ -11,10 +11,10 @@ import BilgiModal from '@/components/BilgiModal';
 
 export default function App() {
   // --- HAFIZA (STATE) ---
-  const [saniye, setSaniye] = useState(0); // Sayacımız 0'dan başlayacak
-  const [calisiyorMu, setCalisiyorMu] = useState(false); // Başlangıçta duruyor
-  const [secilenKategori, setSecilenKategori] = useState('Odak'); // Varsayılan olarak Python seçili gelsin
-  const [otomatikMod, setOtomatikMod] = useState(false); // false = Manuel, true = Sensör (Ters Çevir)
+  const [saniye, setSaniye] = useState(0); 
+  const [calisiyorMu, setCalisiyorMu] = useState(false); 
+  const [secilenKategori, setSecilenKategori] = useState('Odak'); 
+  const [otomatikMod, setOtomatikMod] = useState(false); 
   const [kategoriler, setKategoriler] = useState([
     { id: '1', ad: 'Odak', ikon: '🎯', renk: '#FF453A' },
   ]);
@@ -24,12 +24,12 @@ export default function App() {
   const aktifKategoriObjesi = kategoriler.find((k) => k.ad === secilenKategori);
   const aktifRenk = aktifKategoriObjesi ? aktifKategoriObjesi.renk : '#34C759';
   const [istatistikler, setIstatistikler] = useState<any>({});
-  const [istatistikModalAcikMi, setIstatistikModalAcikMi] = useState(false); // İstatistik penceresi açık mı?
-  const [sesAcikMi, setSesAcikMi] = useState(false); // Kulaklık ikonuna tıklandı mı?
-  const [secilenSes, setSecilenSes] = useState('yagmur'); // Hangi ses seçili?
-  const [sesModalAcikMi, setSesModalAcikMi] = useState(false); // Ses seçme menüsü açık mı?
+  const [istatistikModalAcikMi, setIstatistikModalAcikMi] = useState(false); 
+  const [sesAcikMi, setSesAcikMi] = useState(false);
+  const [secilenSes, setSecilenSes] = useState('yagmur'); 
+  const [sesModalAcikMi, setSesModalAcikMi] = useState(false); 
   const sesMotoru = useRef<Audio.Sound | null>(null);
-  const arkaPlanZamani = useRef<number | null>(null); // Uygulamanın aşağı indirildiği anki saat
+  const arkaPlanZamani = useRef<number | null>(null); 
   const calisiyorMuRef = useRef(calisiyorMu);
   const [bilgiModalAcikMi, setBilgiModalAcikMi] = useState(false);
 
@@ -41,7 +41,7 @@ export default function App() {
     'orman': require('../../assets/orman.mp3'),
   };
 
-  // --- UYGULAMA İLK AÇILDIĞINDA ÇALIŞACAK HAFIZA NÖBETÇİSİ ---
+  
   useEffect(() => {
     const kayitliVerileriGetir = async () => {
       try {
@@ -63,7 +63,7 @@ export default function App() {
     };
 
     kayitliVerileriGetir();
-  }, []); // Köşeli parantez boş olduğu için sadece uygulama İLK açıldığında 1 kez çalışır.
+  }, []); 
 
 
   // --- ZAMANLAYICI MOTORU (SİHİRLİ KISIM) ---
@@ -80,13 +80,12 @@ export default function App() {
       clearInterval(interval);
     }
 
-    // CLEANUP (Temizlik) FONKSİYONU: Önceki projede konuştuğumuz o çok önemli kural!
-    // Component ekrandan giderse veya state değişirse, eski sayacı hafızadan siler. (Memory Leak'i önler)
+ 
     return () => clearInterval(interval);
 
-  }, [calisiyorMu]); // Bu motor sadece "calisiyorMu" durumu değiştiğinde uyanır!
+  }, [calisiyorMu]); 
 
-  // --- KURŞUNGEÇİRMEZ SES MOTORU ---
+
   useEffect(() => {
     const sesYonetimi = async () => {
       // 1. GÜVENLİK KONTROLÜ: İçeride eski bir ses varsa, ÖNCE onun yüklendiğinden emin ol, sonra sil!
@@ -154,7 +153,7 @@ export default function App() {
     // 3. CLEANUP (Temizlik): Uygulama kapanırsa sensörü kapat ki telefonun şarjı bitmesin!
     return () => abonelik.remove();
 
-  }, [calisiyorMu, otomatikMod]); // State değiştikçe nöbetçi güncel durumu öğrensin
+  }, [calisiyorMu, otomatikMod]); 
 
   useEffect(() => {
     calisiyorMuRef.current = calisiyorMu;
@@ -189,7 +188,7 @@ export default function App() {
     return () => {
       abonelik.remove();
     };
-  }, []); // <-- DİKKAT: İÇİ BOŞ! Bu kulaklık sadece uygulama ilk açıldığında 1 kez takılacak ve asla çıkmayacak.
+  }, []); 
 
   // --- BUTON FONKSİYONLARI ---
   const baslatDurdur = () => {
@@ -200,7 +199,7 @@ export default function App() {
       // Başlatırken tok ve kararlı bir his
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     }
-    setCalisiyorMu(!calisiyorMu); // Çalışıyorsa durdur, duruyorsa çalıştır (Tersine çevir)
+    setCalisiyorMu(!calisiyorMu); 
   };
 
   const sifirla = () => {
@@ -238,7 +237,7 @@ export default function App() {
       return; // Boşsa işlemi iptal et
     }
 
-    // 2. Renk Havuzu: Eklenen her kategoriye rastgele havalı bir Apple rengi ata
+   
     const renkHavuzu = ['#FFD60A', '#FF9F0A', '#5E5CE6', '#32ADE6', '#34C759', '#FF453A', '#BF5AF2'];
     const rastgeleRenk = renkHavuzu[Math.floor(Math.random() * renkHavuzu.length)];
 
@@ -701,7 +700,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 15,
     borderRadius: 15,
-    backgroundColor: '#34C759', // Başarı Yeşili
+    backgroundColor: '#34C759',
     marginLeft: 10,
     alignItems: 'center',
   },
@@ -735,7 +734,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   istatistikSure: {
-    color: '#34C759', // Başarı Yeşili (Biriken zaman paradır!)
+    color: '#34C759', 
     fontSize: 16,
     fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace', // Sayılar hizada dursun
     fontWeight: 'bold',
