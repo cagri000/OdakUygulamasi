@@ -26,7 +26,7 @@ Projeyi kendi ortamında test etmek istersen şu adımları izleyebilirsin:
 
 1. Repoyu bilgisayarına klonla:
    ```bash
-   git clone [https://github.com/cagri000/FocusFlow.git](https://github.com/cagri000/FocusFlow.git)
+   git clone https://github.com/cagri000/OdakUygulamasi.git
 
    2. Gerekli paketleri yükle:
    npm install
