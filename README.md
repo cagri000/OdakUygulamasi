@@ -1,50 +1,35 @@
-# Welcome to your Expo app 👋
+# ⏳ FocusFlow 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> Dış dünyadan soyutlanıp derin çalışmaya (Deep Work) odaklanmak isteyenler için tasarlanmış, minimalist ve "Immersive" (tam ekran) bir zaman yönetimi uygulaması.
 
-## Get started
+İlk mobil uygulama projem olarak geliştirdiğim FocusFlow; sadeliği, performansı ve kullanıcı deneyimini (UX) ön planda tutarak tasarlandı.
 
-1. Install dependencies
+## ✨ Temel Özellikler (Core Features)
 
+* **🎯 Özelleştirilebilir Odak Sayacı:** Esnek zamanlayıcı ile kendi çalışma döngünü (Flow State) oluştur.
+* **🎧 Ambiyans Sesleri (Ambient Audio):** Yağmur, Kafe ve Orman gibi arka plan sesleriyle çevresel dikkat dağıtıcıları engelle.
+* **📱 Akıllı Dokunuşlar (Haptic Feedback):** Gizli menüler ve butonlar, kullanıcının eylemlerine fiziksel titreşimlerle (Haptics) tepki verir. Uzun basma (Long Press) gibi "Hidden Affordance" dinamikleri içerir.
+* **📊 Cihaz İçi İstatistik (Local Storage):** Çalışma verilerin `AsyncStorage` ile tamamen senin cihazında (çevrimdışı ve güvenli) tutulur. İnternet gerektirmez, veri sızdırmaz.
+
+
+## 🛠️ Kullanılan Teknolojiler (Tech Stack)
+
+* **Framework:** React Native & Expo
+* **Dil:** TypeScript / JavaScript (ES6+)
+* **Bileşen Mimarisi:** React Functional Components & Hooks (`useState`, `useEffect`)
+* **Kütüphaneler:** `expo-av` (Ses yönetimi), `expo-haptics` (Titreşim), `react-native-async-storage` (Yerel Veritabanı)
+* **Derleme & Dağıtım (CI/CD):** EAS (Expo Application Services) ile Cloud Build (.apk)
+
+## 🚀 Projeyi Kendi Bilgisayarında Çalıştırmak İçin
+
+Projeyi kendi ortamında test etmek istersen şu adımları izleyebilirsin:
+
+1. Repoyu bilgisayarına klonla:
    ```bash
+   git clone [https://github.com/cagri000/FocusFlow.git](https://github.com/cagri000/FocusFlow.git)
+
+   2. Gerekli paketleri yükle:
    npm install
-   ```
 
-2. Start the app
-
-   ```bash
+   3. Expo sunucusunu başlat:
    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
